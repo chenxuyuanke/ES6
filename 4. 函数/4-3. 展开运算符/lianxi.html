@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 收集数组
+
+        const arr1 = [3, 67, 8, 5];
+
+        const arr2 = [1, 11];
+
+        const arr3=[...arr1,...arr2]
+        // 克隆对象
+
+        const obj1 = {
+            name: "成哥",
+            age: 18,
+            love: "邓嫂",
+            address: {
+                country: "中国",
+                province: "黑龙江",
+                city: "哈尔滨"
+            }
+        }
+
+        // 浅克隆到obj2
+
+        const obj2 = {
+
+            address:{...obj1},
+            name: "邓哥"
+        };
+    </script>
+</body>
+
+</html>

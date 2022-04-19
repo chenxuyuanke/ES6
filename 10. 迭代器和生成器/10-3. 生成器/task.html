@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function* create() {
+        //     console.log('第一次运行');
+        //     yield 1;
+        //     console.log('第二次运行');
+        //     yield 2;
+        // }
+
+        // const iterator = create();
+
+
+        // const arr = [5, 7, 2, 3, 6];
+
+
+        // function* iteratorArr() {
+        //     let n = 0;
+        //     for (const item of arr) {
+        //         console.log(`第${n}次运行`);
+        //         n++
+        //         yield item;
+
+        //     }
+        // }
+
+
+        // const iterator = iteratorArr();
+
+
+        function* createFeiboIterator() {
+            let prev1 = 1,
+                prev2 = 1, //当前位置的前1位和前2位
+                n = 1; //当前是第几位
+
+            let value;
+
+            while (true) {
+                if (n <= 2) {
+                    value = 1;
+                } else {
+                    value = prev1 + prev2;
+                    prev2 = prev1;
+                    prev1 = value;
+                }
+
+                n++;
+                yield value
+
+            }
+
+
+
+        }
+
+        const iterator = createFeiboIterator();
+
+    </script>
+</body>
+
+</html>

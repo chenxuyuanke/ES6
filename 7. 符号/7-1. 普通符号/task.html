@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // const obj1 = (() => {
+        //     const symbol1 = Symbol()
+        //     return {
+        //         a: 1,
+        //         [symbol1]: 'nihao'
+        //     }
+        // })()
+
+        // for (const key in obj1) {
+        //     if (Object.hasOwnProperty.call(obj1, key)) {
+        //         const element = obj1[key];
+        //         console.log(element)
+        //     }
+        // }
+        const symbol1 = Symbol('getRandom')
+
+        const hero = {
+            attack: 30,
+            hp: 300,
+            defence: 10,
+            gongji() { //攻击
+                //伤害：攻击力*随机数（0.8~1.1)
+                const dmg = this.attack * this[symbol1](0.8, 1.1);
+                console.log(dmg);
+            },
+            [symbol1](min, max) { //根据最小值和最大值产生一个随机数
+                return Math.random() * (max - min) + min;
+            }
+        }
+
+        console.log(hero[symbol1](2, 3))
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const user = {
+            name: "kevin",
+            age: 11,
+            sex: "男",
+            address: {
+                province: "四川",
+                // city: "成都"
+            }
+        }
+        // let {name,address:{province,city}}=user
+        // let {name,address:{province,city='长沙'}}=user
+        let {name,address:abc}=user
+        // let {name,...obj}=user
+
+
+        // console.log(name,obj)
+
+        console.log(abc===user.address)
+
+
+    </script>
+</body>
+
+</html>

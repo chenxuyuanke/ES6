@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const numbers = ["a", "b", "c", "d", {
+        //     a: 1,
+        //     b: 2
+        // }];
+
+        // let [, , , , {
+        //     c: n = 12
+        // }] = numbers
+        // console.log(n)
+
+
+        // const numbers = ["a", "b", "c", "d", [1, 2, 3, 4]];
+
+        // let [,,,,[,,n1]]=numbers
+
+        // console.log(n1)
+
+        // let a = 1,
+        //     b = 2;
+
+        // [b,a] = [a,b]
+        // console.log(a,b)
+
+
+        // const numbers = ["a", "b", "c", "d","h"];
+        // let [a,b,...nums]=numbers
+
+        // console.log(a,b,nums)
+
+        const article = {
+            title: "文章标题",
+            content: "文章内容",
+            comments: [{
+                content: "评论1",
+                user: {
+                    id: 1,
+                    name: "用户名1"
+                }
+            }, {
+                content: "评论2",
+                user: {
+                    id: 2,
+                    name: "用户名2"
+                }
+            }]
+        }
+
+        //解构出第二条评论的用户名和评论内容
+        // name:"用户名2"  content:"评论2"
+
+        // let {
+        //     comments: [, {
+        //         content,
+        //         user: {
+        //             name
+        //         }
+        //     }]
+        // } = article
+
+        // let [, {
+        //     content,
+        //     user: {
+        //         name
+        //     }
+        // }] = article.comments
+
+        let {
+            content,
+            user: {
+                name
+            }
+        } = article.comments[1]
+        console.log(content, name)
+    </script>
+</body>
+
+</html>

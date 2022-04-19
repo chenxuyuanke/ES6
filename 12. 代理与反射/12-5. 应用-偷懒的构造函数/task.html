@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        class User {
+            // constructor(firstName, lastName, age) {
+            //     this.firstName = firstName;
+            //     this.lastName = lastName;
+            //     this.age = age;
+            // }
+
+        }
+
+        function proxyConstructor(target, ...propNames) {
+            const proxy = new Proxy(target, {
+                construct(target, arguments) {
+                    const obj = Reflect.construct(target, arguments)
+                    propNames.forEach((item, i) => {
+                        obj[item] = arguments[i]
+                    })
+                    return obj
+                }
+            })
+            return proxy
+        }
+
+        // const xiaoming = new User('Xiaomi', 'mi', 18);
+
+        const newUser = proxyConstructor(User, 'firstName', 'lastName', 'age')
+
+        const xiaoming = new newUser('Xiaomi', 'mi', 18);
+
+        console.log(xiaoming)
+    </script>
+</body>
+
+</html>

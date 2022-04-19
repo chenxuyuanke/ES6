@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, 2, 3, 4, 5];
+        //迭代数组arr
+
+        // const iterator = {
+        //     i: 0,
+        //     next() {
+        //         const result = {
+        //             value: arr[this.i],
+        //             done: this.i >= arr.length
+        //         }
+        //         this.i++
+        //         return result;
+        //     }
+        // }
+        // let item = iterator.next()
+        // while (!item.done) {
+
+        //     console.log(item.value)
+        //     item = iterator.next();
+        // }
+
+
+        // function createIterator(arr) {
+        //     let i = 0;
+        //     return {
+        //         next() {
+        //             const result = {
+        //                 value: arr[i],
+        //                 done: i >= arr.length
+        //             }
+        //             i++
+        //             return result;
+        //         }
+        //     }
+        // }
+
+
+        // const iteratorArr = createIterator(arr)
+
+        // while (!item.done) {
+
+        //     console.log(item.value)
+        //     item = iterator.next();
+        // }
+
+        // iterator.next()
+
+        // 依次得到斐波拉契数列前面n位的值
+        // 1 1 2 3 5 8 13 .....
+
+        //创建一个斐波拉契数列的迭代器
+        function createFeiBoIterator() {
+            let i = 1, prev1 = 1, prev2 = 1;
+
+            return {
+                next() {
+                    let value;
+                    if (i === 1 || i === 2) {
+                        value = 1
+                    } else {
+                        value = prev1 + prev2
+                    }
+                    const result = {
+                        value,
+                        done: false
+                    }
+                    prev2 = prev1
+                    prev1 = result.value
+
+                    i++
+                    return result;
+                }
+            }
+        }
+
+        const feiBoIterator = createFeiBoIterator()
+
+    </script>
+</body>
+
+</html>

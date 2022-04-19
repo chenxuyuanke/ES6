@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var print = 'print1'
+        class Animal {
+            // static a = 1
+            // static b = () => {
+
+            // }
+            constructor(type, name, age, sex) {
+                this.type = type;
+                this.name = name;
+                this.age = age;
+                this.sex = sex;
+            }
+            get age() {
+                return this._age + '岁'
+            }
+            set age(age) {
+                if (age < 0) {
+                    age = 0;
+                } else if (age > 1000) {
+                    age = 1000;
+                }
+                this._age = age
+            }
+            [print]() {
+                console.log(`【种类】：${this.type}`);
+                console.log(`【名字】：${this.name}`);
+                console.log(`【年龄】：${this.age}`);
+                console.log(`【性别】：${this.sex}`);
+            }
+        }
+
+        var a = new Animal("狗", "旺财", 3, "男");
+
+        // a[print]();
+
+
+    </script>
+</body>
+
+</html>

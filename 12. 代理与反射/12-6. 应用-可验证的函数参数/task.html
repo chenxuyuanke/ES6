@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sum(a, b) {
+            return a + b
+        }
+
+        function proxyFunc(func, ...type) {
+            const proxy = new Proxy(func, {
+                apply(target, thisArgument, argumentsList) {
+                    type.forEach((item, i) => {
+                        if (typeof argumentsList[i] !== item) {
+                            throw new Error(`第${i + 1}个参数${argumentsList[i]}不是类型${item}`)
+                        }
+                    })
+                    return Reflect.apply(target, thisArgument, argumentsList)
+                }
+            })
+            return proxy
+        }
+
+        const proxySum = proxyFunc(sum, 'number', 'number')
+
+        const result = proxySum(1, 2)
+
+    </script>
+</body>
+
+</html>
